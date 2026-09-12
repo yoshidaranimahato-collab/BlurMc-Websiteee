@@ -3,69 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlurMc SMP | Official Website</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0f172a;
-            color: #fff;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            padding: 50px 20px;
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-        }
-        h1 { font-size: 3rem; color: #38bdf8; margin-bottom: 10px; }
-        p { font-size: 1.2rem; color: #94a3b8; }
-        .box {
-            background: #1e293b;
-            margin: 20px auto;
-            padding: 20px;
-            max-width: 500px;
-            border-radius: 12px;
-            border: 1px solid #334155;
-        }
-        .btn {
-            display: inline-block;
-            background: #38bdf8;
-            color: #0f172a;
-            padding: 12px 24px;
-            margin: 10px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .btn:hover { background: #0284c7; color: #fff; }
-    </style>
+    <title>BlurMc SMP | Official Dashboard</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>BlurMc SMP</h1>
-        <p>Welcome to the ultimate Minecraft SMP experience!</p>
-    </header>
+    <nav>
+        <div class="logo">BlurMc SMP</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="apply.html">Apply</a>
+            <a href="rules.html">Rules</a>
+            <a href="player.html">Player Stats</a>
+            <a href="login.html" class="btn">Login</a>
+        </div>
+    </nav>
 
-    <div class="box">
-        <h2>Server Info</h2>
-        <p><b>Java IP:</b> blurmc.aternos.me</p> <!-- Apni IP yahan daalo -->
-        <p><b>Bedrock Port:</b> 19132</p>
-        <button class="btn" onclick="copyIP()">Copy Server IP</button>
-    </div>
+    <div class="container">
+        <div class="card" style="text-align: center;">
+            <h1>Welcome to BlurMc Network</h1>
+            <p style="color: var(--text-sub);">Join India's Most Action-Packed Minecraft SMP</p>
+            <br>
+            <button class="btn" onclick="copyIP()">Copy Java/Bedrock IP</button>
+        </div>
 
-    <div class="box">
-        <h2>Join Our Community</h2>
-        <a href="YOUR_DISCORD_LINK" class="btn" target="_blank">Discord Join Karo</a>
+        <div class="card">
+            <h2>Gamemodes Available</h2>
+            <ul>
+                <li>⚡ <b>Lifesteal SMP:</b> Kill players, steal hearts, and dominate the server!</li>
+                <li>⚔️ <b>Practice:</b> Upgrade your PvP skills with low latency.</li>
+                <li>🌲 <b>Survival:</b> Relaxed SMP experience with claim protections.</li>
+            </ul>
+        </div>
     </div>
 
     <script>
         function copyIP() {
-            navigator.clipboard.writeText("blurmc.aternos.me"); // Apni IP yahan daalo
-            alert("IP Copy ho gayi: blurmc.aternos.me");
+            navigator.clipboard.writeText("play.blurmc.net");
+            alert("IP Copied: play.blurmc.net");
         }
     </script>
-
 </body>
 </html>

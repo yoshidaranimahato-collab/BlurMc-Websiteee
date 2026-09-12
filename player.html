@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlurMc | Player Lookup</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">BlurMc SMP</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="apply.html">Apply</a>
+            <a href="rules.html">Rules</a>
+            <a href="player.html">Player Stats</a>
+            <a href="login.html" class="btn">Login</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card" style="text-align: center;">
+            <h2>Minecraft Premium Player Search</h2>
+            <input type="text" id="playerName" placeholder="Enter Premium IGN (e.g. Notch, Dream)" style="max-width: 400px;">
+            <br>
+            <button class="btn" onclick="searchPlayer()">Search Profile</button>
+        </div>
+
+        <div id="playerResult" class="card" style="display: none; text-align: center;">
+            <h3 id="displayIGN"></h3>
+            <img id="playerSkin" src="" alt="Player Skin 3D" style="height: 200px; margin: 15px;">
+            <p>Status: Premium Account Verified</p>
+        </div>
+    </div>
+
+    <script>
+        function searchPlayer() {
+            const name = document.getElementById('playerName').value;
+            if(!name) return alert("Please enter a player name!");
+
+            document.getElementById('displayIGN').innerText = name;
+            document.getElementById('playerSkin').src = `https://mc-heads.net/body/${name}/right`;
+            document.getElementById('playerResult').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

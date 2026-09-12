@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlurMc | Staff & Media Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">BlurMc SMP</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="apply.html">Apply</a>
+            <a href="rules.html">Rules</a>
+            <a href="player.html">Player Stats</a>
+            <a href="login.html" class="btn">Login</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <h2>Apply For Staff or Media</h2>
+            
+            <label for="applyType">Select Application Type:</label>
+            <select id="applyType">
+                <option value="Staff Application">Staff Application</option>
+                <option value="Media Application">Media Application</option>
+            </select>
+
+            <label for="ign">Minecraft In-Game Name (IGN):</label>
+            <input type="text" id="ign" placeholder="e.g. NotGamerKM" required>
+
+            <label for="discordTag">Discord Username:</label>
+            <input type="text" id="discordTag" placeholder="e.g. user#0000" required>
+
+            <label for="age">Your Age:</label>
+            <input type="number" id="age" placeholder="16" required>
+
+            <label for="details">Why should we select you? (Paste Channel Link for Media):</label>
+            <textarea id="details" rows="5" placeholder="Write details here..."></textarea>
+
+            <button class="btn" onclick="sendToDiscord()">Submit Application</button>
+        </div>
+    </div>
+
+    <script>
+        function sendToDiscord() {
+            // Yahan apna Discord Webhook URL paste karo:
+            const webhookURL = "YOUR_DISCORD_WEBHOOK_URL_HERE"; 
+
+            const applyType = document.getElementById('applyType').value;
+            const ign = document.getElementById('ign').value;
+            const discordTag = document.getElementById('discordTag').value;
+            const age = document.getElementById('age').value;
+            const details = document.getElementById('details').value;
+
+            if(!ign || !discordTag || !details) {
+                alert("Please fill out all fields!");
+                return;
+            }
+
+            const requestParams = {
+                username: "BlurMc Bot",
+                avatar_url: "https://mc-heads.net/avatar/Steve",
+                embeds: [{
+                    title: `📌 New ${applyType}`,
+                    color: applyType === "Staff Application" ? 3447003 : 15158332,
+                    fields: [
+                        { name: "IGN", value: ign, inline: true },
+                        { name: "Discord", value: discordTag, inline: true },
+                        { name: "Age", value: age, inline: true },
+                        { name: "Details / Channel Link", value: details }
+                    ],
+                    footer: { text: "BlurMc Web Portal System" },
+                    timestamp: new Date()
+                }]
+            };
+
+            fetch(webhookURL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(requestParams)
+            }).then(response => {
+                if(response.ok) {
+                    alert("Application Submitted Successfully!");
+                } else {
+                    alert("Error sending application. Please check Webhook URL.");
+                }
+            });
+        }
+    </script>
+</body>
+</html>

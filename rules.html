@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlurMc | Rules</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">BlurMc SMP</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="apply.html">Apply</a>
+            <a href="rules.html">Rules</a>
+            <a href="player.html">Player Stats</a>
+            <a href="login.html" class="btn">Login</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Server Rules & Guidelines</h1>
+        
+        <div class="tab-buttons">
+            <button class="tab-btn active" onclick="openTab(event, 'lifesteal')">Lifesteal Rules</button>
+            <button class="tab-btn" onclick="openTab(event, 'survival')">Survival Rules</button>
+            <button class="tab-btn" onclick="openTab(event, 'practice')">Practice Rules</button>
+        </div>
+
+        <div id="lifesteal" class="tab-content card active">
+            <h2>💔 Lifesteal SMP Rules</h2>
+            <ul>
+                <li>Combat logging is strictly prohibited (Result: Perm-Kill).</li>
+                <li>Unfair modifications (KillAura, Fly, X-Ray) lead to permanent ban.</li>
+                <li>Heart trading / Alting for free hearts is not allowed.</li>
+                <li>Griefing and Stealing ARE allowed in Lifesteal.</li>
+            </ul>
+        </div>
+
+        <div id="survival" class="tab-content card">
+            <h2>🌲 Survival SMP Rules</h2>
+            <ul>
+                <li>Griefing claimed builds is strictly banned.</li>
+                <li>Respect all players and keep main chat clean.</li>
+                <li>No automated AFK farms that crash TPS.</li>
+            </ul>
+        </div>
+
+        <div id="practice" class="tab-content card">
+            <h2>⚔️ Practice Rules</h2>
+            <ul>
+                <li>Auto-clicking (above 15 CPS) or macro usage is banned.</li>
+                <li>Refusing a SS (Screen Share) will result in a 30-day ban.</li>
+                <li>Toxic behavior and abuse in duels are penalized.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>
